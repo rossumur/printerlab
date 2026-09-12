@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,8 +7,8 @@
   <title>BLE Thermal Printer Lab</title>
   <style>
     :root{--ink:#171a1c;--muted:#686e6a;--paper:#f4f0e7;--card:#fffefa;--line:#d6d3ca;--accent:#e4572e;--green:#1e6b4e;--blue:#315d8a}
-    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,textarea,input,select{font:inherit}button{cursor:pointer}.app{width:min(1160px,calc(100% - 32px));margin:auto;padding:38px 0}.hero{display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--ink)}.mark{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--ink);color:#fff;font:bold 22px ui-monospace,monospace}.eyebrow,.step{margin:0 0 5px;color:var(--accent);font:bold 11px ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase}h1{margin:0;font-size:clamp(34px,5vw,55px);line-height:.95;letter-spacing:-.05em}.lede{max-width:720px;margin:10px 0 0;color:var(--muted);line-height:1.45}.connect,.print,.probe{border:0;background:var(--ink);color:#fff;padding:13px 19px;font-weight:750}.connect{border-radius:999px}.connect.connected{background:var(--green)}button:disabled{cursor:not-allowed;opacity:.45}.status{display:flex;align-items:center;gap:9px;min-height:42px;margin:16px 0;border:1px solid var(--line);background:#fffefa99;padding:10px 14px;color:var(--muted);font:13px ui-monospace,monospace}.status i{width:7px;height:7px;border-radius:50%;background:var(--accent)}.status.good i{background:var(--green)}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.82fr);gap:17px}.panel{border:1px solid var(--line);background:var(--card);padding:22px}.head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}.head h2{margin:0;font-size:24px;letter-spacing:-.03em}.head>p{max-width:250px;margin:0;color:var(--muted);font-size:13px;text-align:right}.composer>label{display:block;margin-bottom:8px;font-size:13px;font-weight:700}textarea{width:100%;resize:vertical;border:1px solid var(--ink);background:white;padding:13px;font:15px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;outline:none}textarea:focus,input:focus,select:focus{box-shadow:0 0 0 2px #e4572e44;outline:none}.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.controls label,.settings label{color:var(--muted);font-size:12px}.controls strong{float:right;color:var(--ink);font-family:ui-monospace,monospace}.controls input{width:100%;margin-top:10px;accent-color:var(--accent)}.upload{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}input[type=file]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.file{border:1px solid var(--ink);padding:9px 13px;font-size:13px;font-weight:700;cursor:pointer}.link{border:0;background:transparent;color:var(--muted);font-size:13px;text-decoration:underline;text-underline-offset:3px}.preview{display:flex;flex-direction:column}.paper{display:flex;flex:1;align-items:flex-start;justify-content:center;min-height:320px;padding:17px;overflow:auto;background-color:#d9d7d0;background-image:linear-gradient(45deg,#cfcdc6 25%,transparent 25%),linear-gradient(-45deg,#cfcdc6 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#cfcdc6 75%),linear-gradient(-45deg,transparent 75%,#cfcdc6 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}canvas{display:block;width:min(100%,384px);height:auto;background:#fff;box-shadow:0 9px 25px #221f191f;image-rendering:pixelated}.print{width:100%;margin-top:16px;background:var(--accent)}.hint{margin:9px 0 0;color:var(--muted);font-size:11px;text-align:center}.settings{display:grid;grid-template-columns:1fr 1.3fr auto;gap:14px;align-items:end;margin-top:17px;border:1px solid var(--line);background:var(--card);padding:17px}.settings select,.settings input{display:block;width:100%;height:38px;margin-top:6px;border:1px solid var(--line);background:white;padding:0 9px}.probe{height:38px;background:var(--blue);padding:0 16px}.profile-line{grid-column:1/-1;margin:0;padding-top:2px;color:var(--muted);font:12px/1.45 ui-monospace,monospace}.custom{margin-top:17px;border:1px solid var(--line);background:var(--card)}summary{display:flex;justify-content:space-between;padding:14px 18px;cursor:pointer;font-weight:700}summary small{color:var(--muted);font-weight:400}.custom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;padding:0 18px 17px}.custom-grid label{color:var(--muted);font-size:12px}.custom-grid input{display:block;width:100%;margin-top:6px;border:1px solid var(--line);padding:9px}.diagnostics{margin-top:17px;border:1px solid var(--line);background:var(--card)}.gatt{padding:15px 18px;border-top:1px solid var(--line);font:12px/1.6 ui-monospace,monospace;color:var(--muted);word-break:break-all}.gatt b{color:var(--green)}.tracebar{display:flex;align-items:center;gap:15px;padding:10px 18px;border-top:1px solid var(--line);font-size:12px}.tracebar strong{margin-right:auto}.tracebar label{color:var(--muted)}.tracebar input{vertical-align:-2px}.trace{height:290px;margin:0;padding:14px 18px;overflow:auto;border-top:1px solid var(--line);background:#151718;color:#d9e2dc;font:11px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}footer{display:flex;justify-content:space-between;gap:20px;margin-top:17px;color:var(--muted);font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.04em}.localhost{margin-top:16px;padding:13px 16px;border-left:3px solid var(--accent);background:#fffefa;color:var(--muted);font-size:13px}.localhost code{color:var(--ink);font-family:ui-monospace,monospace}
-    @media(max-width:800px){.app{width:min(100% - 22px,640px);padding-top:22px}.hero{grid-template-columns:45px 1fr}.mark{width:45px;height:45px;font-size:19px}.connect{grid-column:1/-1;width:100%}.grid{grid-template-columns:1fr}.controls,.settings,.custom-grid{grid-template-columns:1fr}.profile-line{grid-column:auto}footer{display:block;line-height:1.5}}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,textarea,input,select{font:inherit}button{cursor:pointer}.app{width:min(1160px,calc(100% - 32px));margin:auto;padding:38px 0}.hero{display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--ink)}.mark{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--ink);color:#fff;font:bold 22px ui-monospace,monospace}.eyebrow,.step{margin:0 0 5px;color:var(--accent);font:bold 11px ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase}h1{margin:0;font-size:clamp(34px,5vw,55px);line-height:.95;letter-spacing:-.05em}.lede{max-width:720px;margin:10px 0 0;color:var(--muted);line-height:1.45}.connect,.print,.probe,.r22test{border:0;background:var(--ink);color:#fff;padding:13px 19px;font-weight:750}.connect{border-radius:999px}.connect.connected{background:var(--green)}button:disabled{cursor:not-allowed;opacity:.45}.status{display:flex;align-items:center;gap:9px;min-height:42px;margin:16px 0;border:1px solid var(--line);background:#fffefa99;padding:10px 14px;color:var(--muted);font:13px ui-monospace,monospace}.status i{width:7px;height:7px;border-radius:50%;background:var(--accent)}.status.good i{background:var(--green)}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.82fr);gap:17px}.panel{border:1px solid var(--line);background:var(--card);padding:22px}.head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}.head h2{margin:0;font-size:24px;letter-spacing:-.03em}.head>p{max-width:250px;margin:0;color:var(--muted);font-size:13px;text-align:right}.composer>label{display:block;margin-bottom:8px;font-size:13px;font-weight:700}textarea{width:100%;resize:vertical;border:1px solid var(--ink);background:white;padding:13px;font:15px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;outline:none}textarea:focus,input:focus,select:focus{box-shadow:0 0 0 2px #e4572e44;outline:none}.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.controls label,.settings label{color:var(--muted);font-size:12px}.controls strong{float:right;color:var(--ink);font-family:ui-monospace,monospace}.controls input{width:100%;margin-top:10px;accent-color:var(--accent)}.upload{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}input[type=file]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.file{border:1px solid var(--ink);padding:9px 13px;font-size:13px;font-weight:700;cursor:pointer}.link{border:0;background:transparent;color:var(--muted);font-size:13px;text-decoration:underline;text-underline-offset:3px}.preview{display:flex;flex-direction:column}.paper{display:flex;flex:1;align-items:flex-start;justify-content:center;min-height:320px;padding:17px;overflow:auto;background-color:#d9d7d0;background-image:linear-gradient(45deg,#cfcdc6 25%,transparent 25%),linear-gradient(-45deg,#cfcdc6 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#cfcdc6 75%),linear-gradient(-45deg,transparent 75%,#cfcdc6 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}canvas{display:block;max-width:100%;height:auto;background:#fff;box-shadow:0 9px 25px #221f191f;image-rendering:pixelated}.print{width:100%;margin-top:16px;background:var(--accent)}.hint{margin:9px 0 0;color:var(--muted);font-size:11px;text-align:center}.settings{display:grid;grid-template-columns:1fr 1.3fr auto auto;gap:14px;align-items:end;margin-top:17px;border:1px solid var(--line);background:var(--card);padding:17px}.settings select,.settings input{display:block;width:100%;height:38px;margin-top:6px;border:1px solid var(--line);background:white;padding:0 9px}.probe,.r22test{height:38px;padding:0 16px}.probe{background:var(--blue)}.r22test{background:var(--green)}.profile-line{grid-column:1/-1;margin:0;padding-top:2px;color:var(--muted);font:12px/1.45 ui-monospace,monospace}.custom{margin-top:17px;border:1px solid var(--line);background:var(--card)}summary{display:flex;justify-content:space-between;padding:14px 18px;cursor:pointer;font-weight:700}summary small{color:var(--muted);font-weight:400}.custom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;padding:0 18px 17px}.custom-grid label{color:var(--muted);font-size:12px}.custom-grid input{display:block;width:100%;margin-top:6px;border:1px solid var(--line);padding:9px}.diagnostics{margin-top:17px;border:1px solid var(--line);background:var(--card)}.gatt{padding:15px 18px;border-top:1px solid var(--line);font:12px/1.6 ui-monospace,monospace;color:var(--muted);word-break:break-all}.gatt b{color:var(--green)}.tracebar{display:flex;align-items:center;gap:15px;padding:10px 18px;border-top:1px solid var(--line);font-size:12px}.tracebar strong{margin-right:auto}.tracebar label{color:var(--muted)}.tracebar input{vertical-align:-2px}.trace{height:290px;margin:0;padding:14px 18px;overflow:auto;border-top:1px solid var(--line);background:#151718;color:#d9e2dc;font:11px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all}footer{display:flex;justify-content:space-between;gap:20px;margin-top:17px;color:var(--muted);font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.04em}.localhost{margin-top:16px;padding:13px 16px;border-left:3px solid var(--accent);background:#fffefa;color:var(--muted);font-size:13px}.localhost code{color:var(--ink);font-family:ui-monospace,monospace}
+    .profile-line{grid-column:1/-1}.settings{display:block}.set-row{display:grid;grid-template-columns:1fr 1.3fr;gap:14px;align-items:end}.set-row label{display:block}.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}.actions .spacer{flex:1}.adv{margin-top:10px;font:12px/1.4 ui-monospace,monospace;color:var(--muted);display:flex;gap:8px;align-items:center}.adv input[type=range]{width:150px}.device-card{margin-top:16px;border:1px solid var(--line);background:#fbfcfb}.device-card .dc-head{display:flex;align-items:baseline;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}.device-card .dc-head h3{margin:0;font-size:15px;letter-spacing:-.01em}.device-card .dc-head .dc-sub{color:var(--muted);font:12px/1.4 ui-monospace,monospace}.device-card .dc-badge{margin-left:auto;font:11px/1 ui-monospace,monospace;padding:5px 9px;border:1px solid var(--line);background:#fff;color:var(--muted)}.device-card .dc-badge.ok{border-color:#1c7c4a;color:#1c7c4a}.device-card .dc-badge.warn{border-color:#a8791b;color:#a8791b}.dc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:0}.dc-group{padding:13px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.dc-group h4{margin:0 0 9px;font:11px/1 -apple-system,system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}.dc-row{display:flex;justify-content:space-between;gap:12px;padding:3px 0;font:12px/1.5 ui-monospace,monospace}.dc-row span{color:var(--muted);flex:0 0 auto}.dc-row b{font-weight:500;text-align:right;word-break:break-all}.dc-row.miss b{color:#b5342a}.dc-empty{padding:16px;color:var(--muted);font:12px/1.5 ui-monospace,monospace}@media(max-width:800px){.app{width:min(100% - 22px,640px);padding-top:22px}.hero{grid-template-columns:45px 1fr}.mark{width:45px;height:45px;font-size:19px}.connect{grid-column:1/-1;width:100%}.grid{grid-template-columns:1fr}.controls,.settings,.custom-grid,.set-row{grid-template-columns:1fr}.adv{flex-wrap:wrap}.profile-line{grid-column:auto}footer{display:block;line-height:1.5}}
   </style>
 </head>
 <body>
@@ -17,36 +18,33 @@
     <div id="localhost" class="localhost" hidden>Serve this file from <code>http://localhost</code>. Run <code>python3 -m http.server 8000</code> in its folder.</div>
     <section class="grid">
       <article class="panel composer">
-        <div class="head"><div><p class="step">01</p><h2>Compose</h2></div><p>Text and images become the same 384-pixel, one-bit raster for every driver.</p></div>
+        <div class="head"><div><p class="step">01</p><h2>Compose</h2></div><p>Text and images become the same one-bit raster for every driver, at the width the printer reports.</p></div>
         <label for="text">Print text</label><textarea id="text" rows="7">Hello from Printer Lab.
 
 Transport and print language are separate.</textarea>
         <div class="controls"><label>Font size <strong id="fontOut">28px</strong><input id="font" type="range" min="14" max="48" value="28"></label><label><span id="heatLabel">Heat / energy</span> <strong id="heatOut">100%</strong><input id="heat" type="range" min="0" max="65535" step="257" value="65535"></label><label>Feed <strong id="feedOut">25</strong><input id="feed" type="range" min="0" max="100" value="25"></label></div>
-        <div class="upload"><label class="file" for="image">Add image</label><input id="image" type="file" accept="image/*"><button id="clearImage" class="link">Remove image</button></div>
+        <div class="controls" style="margin-top:0"><label>Preview<select id="previewMode"><option value="print">As printed</option><option value="read">Readable</option></select></label><label>Orientation<select id="rotate"><option value="auto">Auto by head width</option><option value="0">Upright (0&deg;)</option><option value="90">Quarter turn (90&deg;)</option><option value="270">Quarter turn (270&deg;)</option></select></label><label id="labelLenWrap" hidden>Label length <strong id="labelLenOut">384 dots</strong><input id="labelLen" type="range" min="96" max="1600" step="8" value="384"></label></div><div class="upload"><label class="file" for="image">Add image</label><input id="image" type="file" accept="image/*"><button id="clearImage" class="link">Remove image</button></div>
       </article>
-      <article class="panel preview"><div class="head"><div><p class="step">02</p><h2>Preview</h2></div><p id="stats">384 px wide</p></div><div class="paper"><canvas id="canvas" aria-label="Exact black and white print preview"></canvas></div><button id="print" class="print" disabled>Print preview</button><p id="mode" class="hint">Desktop Chrome or Edge, served from localhost</p></article>
+      <article class="panel preview"><div class="head"><div><p class="step">02</p><h2>Preview</h2></div><p id="stats">384 px wide</p></div><div class="paper"><canvas id="canvas" aria-label="Exact black and white print preview"></canvas></div><button id="print" class="print" disabled>Print</button><p id="mode" class="hint">Desktop Chrome or Edge, served from localhost</p></article>
     </section>
-    <section class="settings" aria-label="Driver settings">
-      <label>Print language<select id="protocolMode"><option value="auto">Auto detect</option><option value="x6h">X6h / 51 78 frames</option><option value="escpos">ESC/POS GS v 0</option></select></label>
-      <label>BLE write strategy<select id="transportMode"><option value="auto">Auto by GATT profile</option><option value="paced20">20 B, paced, no response</option><option value="paced128">128 B, paced, no response</option><option value="ack512">512 B, acknowledged</option></select></label>
-      <button id="probe" class="probe" disabled>Probe again</button><p id="driverState" class="profile-line">No transport selected.</p>
-    </section>
+    <section class="settings" aria-label="Driver settings"><div class="set-row"><label>Print language<select id="protocolMode"><option value="auto">Auto detect</option><option value="r22">Rongta &mdash; 384 px raster</option><option value="x6h">X6h / 51 78 frames</option><option value="escpos">ESC/POS GS v 0</option></select></label><label>BLE write strategy<select id="transportMode"><option value="auto">Auto by GATT profile</option><option value="paced20">20 B, paced, no response</option><option value="paced128">128 B, paced, no response</option><option value="ack512">512 B, acknowledged</option></select></label></div><div class="actions"><button id="probe" class="probe" disabled>Probe again</button><button id="identify" class="r22test" disabled>Identify device</button><span class="spacer"></span><button id="saveTrace" class="link">Save log</button></div><p id="driverState" class="profile-line">No transport selected.</p><div class="adv" title="Not a protocol requirement. The BLE link layer is reliable and back-pressures automatically; leave at 0 unless a host stack misbehaves.">Extra delay between writes <strong id="r22PaceOut">0 ms (link rate)</strong><input id="r22Pace" type="range" min="0" max="40" value="0"></div><div id="deviceCard" class="device-card" hidden></div></section>
     <details class="custom"><summary><span>Custom GATT profile</span><small>Optional, reconnect after editing</small></summary><div class="custom-grid"><label>Service UUID<input id="customService" placeholder="e.g. 18f0"></label><label>Write characteristic<input id="customTx" placeholder="e.g. 2af1"></label><label>Notify characteristic<input id="customRx" placeholder="e.g. 2af0"></label></div></details>
-    <details class="diagnostics" open><summary><span>Diagnostics</span><small id="serviceCount">Connect to inspect</small></summary><div id="gatt" class="gatt">No GATT profile mapped yet.</div><div class="tracebar"><strong>Packet trace</strong><label><input id="verbose" type="checkbox"> Every BLE chunk</label><button id="clearTrace" class="link">Clear</button></div><pre id="trace" class="trace"></pre></details>
-    <footer><p>X6h: CRC-8 per 51 78 frame</p><p>ESC/POS and BLE chunks: no CRC</p></footer>
+    <details class="diagnostics" open><summary><span>Diagnostics</span><small id="serviceCount">Connect to inspect</small></summary><div id="gatt" class="gatt">No GATT profile mapped yet.</div><div class="tracebar"><strong>Packet trace</strong><label><input id="verbose" type="checkbox"> Every BLE chunk</label><button id="saveTrace" class="link">Save log</button><button id="clearTrace" class="link">Clear</button></div><pre id="trace" class="trace"></pre></details>
+    <footer><p>Rongta model 0x1C: CRC-32 seeded 0x76953521</p><p>Rongta: MD5 handshake, TLV parameter query, uncompressed raster</p></footer>
   </main>
   <script>
   (() => {
     'use strict';
-    const W=384,UUID=s=>s.length===4?`0000${s.toLowerCase()}-0000-1000-8000-00805f9b34fb`:s.toLowerCase();
+    let W=384;/* dots across the head; replaced by the printer's own 01:04 report */const W_DEFAULT=384,UUID=s=>s.length===4?`0000${s.toLowerCase()}-0000-1000-8000-00805f9b34fb`:s.toLowerCase();
     const PROFILES=[
-      {name:'Cat AE30',services:[UUID('ae30'),UUID('af30')],tx:UUID('ae01'),rx:UUID('ae02'),protocol:'x6h',transport:'paced20'},
-      {name:'Y2C 18F0',services:[UUID('18f0')],tx:UUID('2af1'),rx:UUID('2af0'),protocol:null,transport:'ack512'},
-      {name:'Phomemo FF00',services:[UUID('ff00')],tx:UUID('ff02'),rx:UUID('ff03'),protocol:'escpos',transport:'paced128'},
-      {name:'Serial FFE0',services:[UUID('ffe0')],tx:UUID('ffe1'),rx:UUID('ffe1'),protocol:'escpos',transport:'paced20'}
+      
+      {name:'Cat AE30',services:[UUID('ae30'),UUID('af30')],tx:[UUID('ae01')],rx:[UUID('ae02')],protocol:'x6h',transport:'paced20'},
+      {name:'Y2C 18F0',services:[UUID('18f0')],tx:[UUID('2af1')],rx:[UUID('2af0')],protocol:null,transport:'ack512'},
+      {name:'FF00 family (Rongta / DingDang / NewPrint)',services:[UUID('ff00')],tx:[UUID('ff02'),UUID('ff01')],rx:[UUID('ff01'),UUID('ff03')],protocol:null,transport:'ack512',dialect:'ff00'},
+      {name:'Serial FFE0',services:[UUID('ffe0')],tx:[UUID('ffe1')],rx:[UUID('ffe1')],protocol:'escpos',transport:'paced20'}
     ];
     const $=id=>document.getElementById(id),canvas=$('canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true}),sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-    let device=null,tx=null,notifyChar=null,activeProfile=null,protocol=null,detectedProtocol=null,detectionNote='',image=null,printing=false,traceLines=[],traceStart=performance.now(),rxCount=0,rxWaiters=[],catEnergy=65535,escDensity=6;
+    let device=null,tx=null,notifyChars=[],activeProfile=null,protocol=null,detectedProtocol=null,detectionNote='',image=null,printing=false,traceLines=[],traceStart=performance.now(),rxCount=0,rxWaiters=[],catEnergy=65535,escDensity=6,r22Rx=new Uint8Array(0),r22Waiters=[],r22Auth1=null,r22Ready=false,deviceFacts={},probeRecords=null,probeTxRecord=null;
 
     function setStatus(text,good=false){$('status').classList.toggle('good',good);$('status').querySelector('span').textContent=text}
     function hex(bytes){return[...bytes].map(byte=>byte.toString(16).padStart(2,'0')).join(' ')}
@@ -59,31 +57,647 @@ Transport and print language are separate.</textarea>
     function verifyX6hFrames(data){let at=0,total=0,bad=0;const commands={};while(at<data.length){if(data[at]!==0x51||data[at+1]!==0x78){bad++;break}const command=data[at+2],length=data[at+4]|data[at+5]<<8,end=at+length+8;if(end>data.length||data[end-1]!==0xff){bad++;break}const payload=data.slice(at+6,at+6+length);if(data[at+6+length]!==crc8(payload))bad++;commands[command]=(commands[command]||0)+1;total++;at=end}return{total,bad,commands}}
     function join(parts){const out=new Uint8Array(parts.reduce((sum,part)=>sum+part.length,0));let at=0;for(const part of parts){out.set(part,at);at+=part.length}return out}
     function densityHeat(level){return[40,60,80,100,120,140,160,200][Math.max(0,Math.min(7,level-1))]}
-    function setHeatMode(nextProtocol){const slider=$('heat');if(nextProtocol==='escpos'){slider.min=1;slider.max=8;slider.step=1;slider.value=escDensity;$('heatLabel').textContent='ESC/POS density';$('heatOut').textContent=`${escDensity} · heat ${densityHeat(escDensity)}`}else{slider.min=0;slider.max=65535;slider.step=257;slider.value=catEnergy;$('heatLabel').textContent='X6h energy';$('heatOut').textContent=Math.round(catEnergy/65535*100)+'%'}}
-    function receiveNotification(event){const value=event.target.value,packet=new Uint8Array(value.buffer,value.byteOffset,value.byteLength).slice();rxCount++;trace(`RX #${rxCount} · ${packet.length} B · hex ${hex(packet)} · ascii "${ascii(packet)}" · base64 ${base64(packet)}`);for(const waiter of [...rxWaiters])if(!waiter.match||waiter.match(packet))waiter.finish(packet)}
-    function waitForPacket(timeout=800,match=null){return new Promise(resolve=>{const waiter={match,finish:null};let settled=false;waiter.finish=packet=>{if(settled)return;settled=true;clearTimeout(timer);const index=rxWaiters.indexOf(waiter);if(index>=0)rxWaiters.splice(index,1);resolve(packet)};const timer=setTimeout(()=>waiter.finish(null),timeout);rxWaiters.push(waiter)})}
+    function catEnergyFor(step){/* 1..10 across the range community drivers actually use */const lo=8000,hi=25000,n=Math.max(1,Math.min(10,step));return Math.round(lo+(hi-lo)*(n-1)/9)}function catStepFor(energy){const lo=8000,hi=25000;return Math.max(1,Math.min(10,Math.round((energy-lo)/(hi-lo)*9)+1))}function setHeatMode(nextProtocol){const slider=$('heat');if(nextProtocol==='escpos'||nextProtocol==='r22'){slider.min=1;slider.max=8;slider.step=1;slider.value=escDensity;$('heatLabel').textContent=nextProtocol==='r22'?'Rongta density':'ESC/POS density';$('heatOut').textContent=`${escDensity} · heat ${densityHeat(escDensity)}`}else{slider.min=1;slider.max=10;slider.step=1;slider.value=catStepFor(catEnergy);$('heatLabel').textContent='Cat energy';$('heatOut').textContent=`${slider.value} · energy ${catEnergy}`}}
+    function shortUUID(uuid){const match=String(uuid).toLowerCase().match(/^0000([0-9a-f]{4})-/);return match?match[1]:String(uuid)}
+    function crc32Table(){const table=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xedb88320^(c>>>1):c>>>1;table[n]=c>>>0}return table}
+    const CRC32=crc32Table();
+    function r22Crc(frame){if(frame.length<11)throw Error('Rongta frame is shorter than its header.');/* reflected CRC-32 poly 0xEDB88320, vendor seed 0x76953521 (init = ~seed = 0x896ACADE) */let state=0x896acade>>>0;for(let i=6;i<frame.length-4;i++)state=(CRC32[(frame[i]^state)&255]^(state>>>8))>>>0;return(~state)>>>0}
+    function readU32LE(bytes,at){return(bytes[at]|bytes[at+1]<<8|bytes[at+2]<<16|bytes[at+3]<<24)>>>0}
+    function inspectR22Frame(packet){if(packet.length<15||packet[0]!==0xa3||packet[1]!==0x1e||packet[2]!==0x1c)return null;const payloadLength=packet[9]|packet[10]<<8,frameLength=11+payloadLength+4;if(packet.length<frameLength)return{valid:false,note:`truncated ${packet.length}/${frameLength} B`};const frame=packet.slice(0,frameLength),expected=readU32LE(frame,frameLength-4),actual=r22Crc(frame);return{valid:expected===actual,category:frame[7],command:frame[8],payloadLength,expected,actual}}
+
+    /* ---------- MD5 (RFC 1321) ---------- */
+    function md5hex(str){
+      const msg=new TextEncoder().encode(str);
+      const S=[7,12,17,22,7,12,17,22,7,12,17,22,7,12,17,22,5,9,14,20,5,9,14,20,5,9,14,20,5,9,14,20,
+               4,11,16,23,4,11,16,23,4,11,16,23,4,11,16,23,6,10,15,21,6,10,15,21,6,10,15,21,6,10,15,21];
+      const K=new Uint32Array(64);for(let i=0;i<64;i++)K[i]=(Math.floor(Math.abs(Math.sin(i+1))*4294967296))>>>0;
+      const len=msg.length,bitLen=len*8;
+      const padded=new Uint8Array((((len+8)>>6)+1)*64);
+      padded.set(msg);padded[len]=0x80;
+      const dv=new DataView(padded.buffer);
+      dv.setUint32(padded.length-8,bitLen>>>0,true);
+      dv.setUint32(padded.length-4,Math.floor(bitLen/4294967296)>>>0,true);
+      let a0=0x67452301,b0=0xefcdab89,c0=0x98badcfe,d0=0x10325476;
+      for(let off=0;off<padded.length;off+=64){
+        const M=new Uint32Array(16);for(let i=0;i<16;i++)M[i]=dv.getUint32(off+i*4,true);
+        let A=a0,B=b0,C=c0,D=d0;
+        for(let i=0;i<64;i++){
+          let F,g;
+          if(i<16){F=(B&C)|(~B&D);g=i}
+          else if(i<32){F=(D&B)|(~D&C);g=(5*i+1)&15}
+          else if(i<48){F=B^C^D;g=(3*i+5)&15}
+          else{F=C^(B|~D);g=(7*i)&15}
+          F=(F+A+K[i]+M[g])>>>0;A=D;D=C;C=B;
+          B=(B+((F<<S[i])|(F>>>(32-S[i]))))>>>0;
+        }
+        a0=(a0+A)>>>0;b0=(b0+B)>>>0;c0=(c0+C)>>>0;d0=(d0+D)>>>0;
+      }
+      const out=new Uint8Array(16),o=new DataView(out.buffer);
+      o.setUint32(0,a0,true);o.setUint32(4,b0,true);o.setUint32(8,c0,true);o.setUint32(12,d0,true);
+      return [...out].map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+
+    /* ---------- R22 frame build / parse ---------- */
+    function r22Build(channel,group,sub,data){
+      const d=data?new Uint8Array(data):new Uint8Array(0),len=d.length,frame=new Uint8Array(15+len);
+      frame[0]=0xa3;frame[1]=0x1e;frame[2]=0x1c;frame[3]=0;
+      frame[4]=(len+5)&255;frame[5]=(len+5)>>8&255;
+      frame[6]=channel;frame[7]=group;frame[8]=sub;
+      frame[9]=len&255;frame[10]=len>>8&255;
+      frame.set(d,11);
+      const crc=r22Crc(frame);
+      frame[11+len]=crc&255;frame[12+len]=crc>>>8&255;frame[13+len]=crc>>>16&255;frame[14+len]=crc>>>24&255;
+      return frame;
+    }
+    function r22Tlv(d){const out=[];let i=0;while(i+3<=d.length){const t=d[i],ln=d[i+1]|d[i+2]<<8;if(i+3+ln>d.length)break;out.push({tag:t,value:d.slice(i+3,i+3+ln)});i+=3+ln}return out}
+    function leNum(v){let n=0;for(let i=v.length-1;i>=0;i--)n=n*256+v[i];return n}
+    function r22Push(bytes){
+      const merged=new Uint8Array(r22Rx.length+bytes.length);merged.set(r22Rx);merged.set(bytes,r22Rx.length);r22Rx=merged;
+      let i=0;
+      while(i+15<=r22Rx.length){
+        if(!(r22Rx[i]===0xa3&&r22Rx[i+1]===0x1e)){i++;continue}
+        const outer=r22Rx[i+4]|r22Rx[i+5]<<8,end=i+6+outer+4;
+        if(end>r22Rx.length)break;
+        const frame=r22Rx.slice(i,end),dlen=frame[9]|frame[10]<<8;
+        const want=readU32LE(frame,frame.length-4);
+        if(r22Crc(frame)!==want){i++;continue}
+        const msg={channel:frame[6],group:frame[7],sub:frame[8],data:frame.slice(11,11+dlen)};
+        trace(`Rongta RX ${msg.group.toString(16).padStart(2,'0')}:${msg.sub.toString(16).padStart(2,'0')} ch${msg.channel.toString(16)} ${msg.data.length} B · ${hex(msg.data).slice(0,72)}`);
+        for(const w of [...r22Waiters])if(w.match(msg))w.finish(msg);
+        i=end;
+      }
+      if(i>0)r22Rx=r22Rx.slice(i);
+      if(r22Rx.length>8192)r22Rx=r22Rx.slice(-4096);
+    }
+    function r22Wait(group,sub,timeout=4000){
+      return new Promise(resolve=>{
+        const w={match:m=>m.group===group&&m.sub===sub,finish:null};let done=false;
+        w.finish=v=>{if(done)return;done=true;clearTimeout(t);const k=r22Waiters.indexOf(w);if(k>=0)r22Waiters.splice(k,1);resolve(v)};
+        const t=setTimeout(()=>w.finish(null),timeout);r22Waiters.push(w);
+      });
+    }
+    async function r22Ask(group,sub,data,label,timeout=4000){
+      const wait=r22Wait(group,sub,timeout);
+      await sendTransport(r22Build(0x11,group,sub,data),{label:label||`Rongta ${group.toString(16)}:${sub.toString(16)}`,transport:'r22safe'});
+      const reply=await wait;
+      if(!reply)trace(`Rongta ${group.toString(16).padStart(2,'0')}:${sub.toString(16).padStart(2,'0')} · no reply within ${timeout} ms`);
+      return reply;
+    }
+
+    /* ---------- authentication ---------- */
+    const R22_SALT='D932A43C3084B1D3';
+    async function r22Authenticate(quiet){
+      if(!tx||protocol!=='r22')return false;
+      trace('Rongta auth · begin');
+      await r22Ask(1,1,[],'Rongta 01:01 session init',3000);
+      const snReply=await r22Ask(1,6,[],'Rongta 01:06 query serial',3000);
+      if(!snReply||!snReply.data.length){trace('Rongta auth · FAILED, no serial number');setStatus('Rongta auth failed: no serial');return false}
+      const serial=ascii(snReply.data).replace(/\.+$/,'');
+      const authCode=md5hex(serial+R22_SALT).slice(8,24);
+      trace(`Rongta auth · serial "${serial}" · auth code ${authCode}`);
+      await r22Ask(1,2,new TextEncoder().encode(authCode),'Rongta 01:02 authorisation code',3000);
+      const hexChars='0123456789abcdef';
+      let challenge='';const rnd=crypto.getRandomValues(new Uint8Array(16));
+      for(const b of rnd)challenge+=hexChars[b&15];
+      const chBytes=new TextEncoder().encode(challenge);
+      const tlv=new Uint8Array(3+chBytes.length);tlv[0]=1;tlv[1]=chBytes.length&255;tlv[2]=chBytes.length>>8&255;tlv.set(chBytes,3);
+      trace(`Rongta auth · challenge ${challenge}`);
+      const hs=await r22Ask(1,0x17,tlv,'Rongta 01:17 challenge',4000);
+      if(!hs){trace('Rongta auth · FAILED, no handshake reply');setStatus('Rongta auth failed: no handshake');return false}
+      const fields=r22Tlv(hs.data);
+      const echo=fields.find(f=>f.tag===1),digest=fields.find(f=>f.tag===2),sn2=fields.find(f=>f.tag===3);
+      const got=digest?ascii(digest.value):'';
+      const want=md5hex(challenge+authCode);
+      trace(`Rongta auth · echo ${echo?ascii(echo.value):'-'} · printer MD5 ${got} · expected ${want}${sn2?` · SN ${ascii(sn2.value)}`:''}`);
+      r22Ready=(got.toLowerCase()===want.toLowerCase());
+      trace(`Rongta auth · ${r22Ready?'VERIFIED':'MISMATCH (continuing, printer may still accept)'}`);
+      if(!quiet)setStatus(r22Ready?'Rongta authenticated':'Rongta handshake mismatch',r22Ready);
+      return r22Ready;
+    }
+
+
+    /* The print head darkness is a device setting, not part of the image stream: without
+       05:04 the slider changes nothing on a Rongta. 05:03 reports the current pair, which
+       also tells us the accepted range, so we clamp to what the printer itself reported. */
+    async function r22SetDensity(){
+      const want=Math.max(1,Math.min(8,+$('heat').value||6));
+      const now=await r22Ask(5,3,[],'Rongta 05:03 get heat density',2000);
+      let cap=8;
+      if(now&&now.data.length){
+        cap=Math.max(...now.data);
+        trace(`Rongta density · printer reports ${[...now.data].join(' / ')}`);
+      }
+      const value=Math.min(want,Math.max(1,cap));
+      if(value!==want)trace(`Rongta density · ${want} clamped to ${value} (printer maximum)`);
+      const reply=await r22Ask(5,4,[value,value],`Rongta 05:04 set heat density ${value}`,2000);
+      trace(reply?`Rongta density · set to ${value}, printer acknowledged`
+                 :`Rongta density · set to ${value}, no acknowledgement`);
+    }
+
+    /* ---------- uncompressed print (05:0D type 0x01) ---------- */
+    function r22RasterBytes(){
+      const rows=rasterRows(),wb=W/8,out=new Uint8Array(rows.length*wb);
+      let at=0;
+      for(const row of rows){for(let x=0;x<W;x+=8){let b=0;for(let k=0;k<8;k++)if(row[x+k])b|=0x80>>k;out[at++]=b}}
+      return{data:out,height:rows.length,widthBytes:wb};
+    }
+    function r22ImagePacket(index,widthBytes,rowOffset,chunk){
+      const d=new Uint8Array(11+chunk.length),rec=chunk.length+7;
+      d[0]=index&255;d[1]=index>>8&255;
+      d[2]=rec&255;d[3]=rec>>8&255;
+      d[4]=0x01;                                   /* uncompressed */
+      d[5]=widthBytes&255;d[6]=widthBytes>>8&255;
+      d[7]=rowOffset&255;d[8]=rowOffset>>8&255;
+      d[9]=0;d[10]=0;
+      d.set(chunk,11);
+      return d;
+    }
+    async function r22PrintUncompressed(){
+      if(!tx||protocol!=='r22'||printing)return;
+      printing=true;      try{
+        if(!r22Ready){trace('Rongta print · not authenticated yet, running handshake first');await r22Authenticate()}
+        const{data,height,widthBytes}=r22RasterBytes();
+        const rowsPerPacket=4,chunkBytes=rowsPerPacket*widthBytes;
+        const packets=Math.ceil(data.length/chunkBytes);
+        trace(`Rongta print · ${W}x${height} px · ${widthBytes} B/row · ${data.length} B raster · ${packets} packets of <=${chunkBytes} B · type 0x01 uncompressed`);
+        await r22Ask(5,0x20,[],'Rongta 05:20 enable state',2500);
+        await r22SetDensity();
+        await sendTransport(r22Build(0x11,5,0x11,[0]),{label:'Rongta 05:11 set paper type',transport:'r22safe'});await sleep(60);
+        /* No 05:08 SET_MOVE_PAPER here: on die-cut label stock an automatic feed
+           ejects a blank label after every job. The stock app does not feed either. */
+        await sendTransport(r22Build(0x11,5,0x0b,[]),{label:'Rongta 05:0B start image',transport:'r22safe'});await sleep(80);
+        /* Build every 05:0D frame first, then stream the concatenation.
+           The stock app treats the link as a byte stream chunked at the ATT MTU
+           (244 B writes carrying 2-4 frames each), not one frame per write. */
+        const parts=[];let index=0,rowOffset=0;
+        for(let at=0;at<data.length;at+=chunkBytes){
+          const chunk=data.slice(at,at+chunkBytes);
+          parts.push(r22Build(0x10,5,0x0d,r22ImagePacket(index,widthBytes,rowOffset,chunk)));
+          if(index<3||index>=packets-2)trace(`Rongta 05:0D · index ${index} · rowOffset ${rowOffset} · ${chunk.length} B raster`);
+          index++;rowOffset+=chunk.length/widthBytes;
+        }
+        const stream=join(parts);
+        const pace=+($('r22Pace')?.value??0);
+        trace(`Rongta stream · ${stream.length} B in ${parts.length} frames · 244 B writes (L2CAP 251 = max LL PDU), no response, extra delay ${pace} ms`);
+        const t0=performance.now();
+        await sendTransport(stream,{label:'Rongta image stream',transport:'r22bulk',progress:true});
+        const secs=(performance.now()-t0)/1000;
+        trace(`Rongta stream sent in ${secs.toFixed(2)} s · ${Math.round(stream.length/secs)} B/s · stock app saturates the link at ~15500 B/s (2 x 244 B per 30 ms connection interval)`);
+        await sleep(120);
+        await sendTransport(r22Build(0x11,5,0x0c,[]),{label:'Rongta 05:0C end image',transport:'r22safe'});
+        trace(`Rongta print · complete · ${index} packets, ${rowOffset} rows`);
+        setStatus(`Rongta print sent · ${index} packets · ${height} rows`,true);
+      }catch(e){trace(`ERROR R22 print: ${e.message||e}`);setStatus(`Rongta print failed: ${e.message||e}`)}
+      finally{printing=false;$('print').disabled=!tx||!protocol}
+    }
+
+
+
+
+
+
+    /* The profile names the characteristics we print through, but a printer often exposes
+       more. Subscribing to the rest and reading the readable ones costs nothing and is
+       frequently where the model, firmware or status actually lives. */
+    async function enableExtraNotifications(records,txRecord){
+      const already=new Set(notifyChars.map(c=>c.uuid));
+      for(const record of records){
+        const c=record.characteristic;
+        if(already.has(c.uuid))continue;
+        if(record.service.uuid!==txRecord.service.uuid)continue;
+        if(!(c.properties.notify||c.properties.indicate))continue;
+        try{
+          await c.startNotifications();
+          c.addEventListener('characteristicvaluechanged',receiveNotification);
+          notifyChars.push(c);
+          trace(`RX also listening: ${c.uuid} [${c.properties.notify?'notify':'indicate'}]`);
+        }catch(error){trace(`RX extra unavailable: ${c.uuid} · ${error.message||error}`)}
+      }
+    }
+    async function readStaticCharacteristics(records,txRecord){
+      for(const record of records){
+        const c=record.characteristic;
+        if(!c.properties.read)continue;
+        try{
+          const v=await c.readValue();
+          const bytes=new Uint8Array(v.buffer,v.byteOffset,v.byteLength).slice();
+          if(!bytes.length){trace(`READ ${shortUUID(c.uuid)} · empty`);continue}
+          const text=ascii(bytes);
+          trace(`READ ${shortUUID(c.uuid)} · ${bytes.length} B · hex ${hex(bytes)}`
+                +(/[\x20-\x7e]{3,}/.test(text)?` · ascii "${text}"`:''));
+        }catch(error){trace(`READ ${shortUUID(c.uuid)} · failed · ${error.message||error}`)}
+      }
+    }
+
+
+    /* ---------- cat-family (X6h) feature probes ----------
+       Command bytes follow the community cat-printer implementations:
+         A3 device state · A8 device info · A4 quality · AF energy
+         A6 lattice · BE drawing mode · BD feed · BF compressed row
+       Everything here is read-only: no motor, no heat. */
+    const CAT_CMD={state:0xa3,info:0xa8,quality:0xa4,energy:0xaf};
+    function catWait(cmd,ms=900){
+      return waitForPacket(ms,p=>p.length>=6&&p[0]===0x51&&p[1]===0x78&&p[2]===cmd);
+    }
+    function catPayload(input){
+      /* waitForPacket resolves with {packet,source}; accept either shape */
+      const p=input&&input.packet?input.packet:input;
+      if(!p||typeof p.length!=='number'||p.length<8)return null;
+      const len=p[4]|p[5]<<8;
+      return p.slice(6,6+Math.max(0,Math.min(len,p.length-8)));
+    }
+    /* The A3 reply carries a small status block. Only the shape is certain, so the
+       raw bytes are always logged and any reading is offered as a suggestion. */
+    function describeCatState(input){
+      const payload=input&&input.packet?catPayload(input):input;
+      if(!payload||!payload.length)return null;
+      const flags=payload[0],bits=[];
+      if(flags&0x01)bits.push('no paper');
+      if(flags&0x02)bits.push('cover open');
+      if(flags&0x04)bits.push('overheated');
+      if(flags&0x08)bits.push('low battery');
+      const out=[`flags 0x${flags.toString(16).padStart(2,'0')}${bits.length?' · '+bits.join(', '):' · none set'}`];
+      if(payload.length>=3)out.push(`byte2 ${payload[1]} · byte3 ${payload[2]} (battery or temperature on most models)`);
+      return out.join(' · ');
+    }
+    async function probeCatFeatures(records,txRecord){
+      if(!tx)return;
+      /* second data channel: newer cat models split control and bulk image data */
+      const inService=records.filter(r=>r.service.uuid===txRecord.service.uuid);
+      const writables=inService.filter(r=>r.characteristic.properties.write||r.characteristic.properties.writeWithoutResponse);
+      if(writables.length>1){
+        const others=writables.filter(r=>r.characteristic.uuid!==tx.uuid).map(r=>shortUUID(r.characteristic.uuid));
+        trace(`Cat probe · extra write channel present: ${others.join(', ')} · newer cat models carry bulk image data on the second channel`);
+      }
+      /* device info */
+      const infoWait=catWait(CAT_CMD.info);
+      await sendTransport(x6hFrame(CAT_CMD.info,[0]),{label:'Cat A8 device info',transport:'paced20'});
+      const info=await infoWait;
+      if(info){
+        const raw=info.packet||info,pl=catPayload(info),text=pl?ascii(pl):'';
+        if(/[\x20-\x7e]{3,}/.test(text)){deviceFacts.model=text.trim();renderDeviceCard()}
+        trace(`Cat probe · A8 device info · ${hex(pl||raw)}`+(/[\x20-\x7e]{3,}/.test(text)?` · ascii "${text}"`:''));
+      }else trace('Cat probe · A8 device info · no reply (not supported on this model)');
+      /* device state */
+      const stateWait=catWait(CAT_CMD.state);
+      await sendTransport(x6hFrame(CAT_CMD.state,[0]),{label:'Cat A3 device state',transport:'paced20'});
+      const st=await stateWait;
+      if(st){
+        const raw=st.packet||st,pl=catPayload(st);
+        trace(`Cat probe · A3 state · ${hex(pl||raw)}`);
+        const desc=describeCatState(pl);
+        if(desc)trace(`Cat probe · A3 reading · ${desc}`);
+        if(pl&&pl.length){
+          const f=pl[0];
+          deviceFacts.paper=(f&0x01)?'out':'present';
+          deviceFacts.cover=(f&0x02)?'open':'closed';
+          deviceFacts.thermal=(f&0x04)?'overheated':'normal';
+          deviceFacts.power=(f&0x08)?'low battery':'ok';
+          if(pl.length>=3)deviceFacts.catAux=`${pl[1]} / ${pl[2]}`;
+          renderDeviceCard();
+        }
+      }else trace('Cat probe · A3 state · no reply');
+      trace(`Cat probe · energy will be sent as ${catEnergy} (slider step ${$('heat').value}/10, range 8000-25000)`);
+    }
+
+    /* ---------- orientation ---------- */
+    const composeCanvas=document.createElement('canvas'),printCanvas=document.createElement('canvas');
+    /* A narrow head means a label printer: media runs long-ways under a short head, so
+       artwork is laid out along the feed and turned a quarter turn to print. */
+    const NARROW_HEAD=200;
+    function activeRotation(){
+      const pick=$('rotate')?.value??'auto';
+      if(pick!=='auto')return +pick;
+      return W<=NARROW_HEAD?90:0;
+    }
+    function blitRotated(src,rot,dst){
+      const q=(rot===90||rot===270);
+      dst.width=q?src.height:src.width;dst.height=q?src.width:src.height;
+      const d=dst.getContext('2d',{willReadFrequently:true});
+      d.save();
+      d.fillStyle='#fff';d.fillRect(0,0,dst.width,dst.height);
+      if(rot===90){d.translate(dst.width,0);d.rotate(Math.PI/2)}
+      else if(rot===180){d.translate(dst.width,dst.height);d.rotate(Math.PI)}
+      else if(rot===270){d.translate(0,dst.height);d.rotate(-Math.PI/2)}
+      d.drawImage(src,0,0);
+      d.restore();
+    }
+    function syncRotationUI(){
+      const rot=activeRotation(),acrossHead=(rot===90||rot===270),wrap=$('labelLenWrap');
+      if(wrap)wrap.hidden=!acrossHead;
+      const out=$('labelLenOut');if(out){const d=+$('labelLen').value,dpi=deviceFacts&&deviceFacts.dpi?deviceFacts.dpi:203;out.textContent=`${d} dots · ${(d/dpi*25.4).toFixed(1)} mm`}
+    }
+
+
+    /* Compose is always laid out readable; `printCanvas` always holds the bitmap in head
+       orientation. The preview simply shows one or the other. */
+    function presentPreview(rot){
+      if(rot)blitRotated(composeCanvas,rot,printCanvas);
+      else{printCanvas.width=composeCanvas.width;printCanvas.height=composeCanvas.height;
+        const d=printCanvas.getContext('2d',{willReadFrequently:true});
+        d.fillStyle='#fff';d.fillRect(0,0,printCanvas.width,printCanvas.height);
+        d.drawImage(composeCanvas,0,0)}
+      const show=($('previewMode')?.value==='read')?composeCanvas:printCanvas;
+      canvas.width=show.width;canvas.height=show.height;
+      ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(show,0,0);
+    }
+
+    /* ---------- adopt the printer's reported geometry ---------- */
+    function setPrintWidth(dots,why){
+      const next=Math.max(64,Math.min(4096,dots|0));
+      if(!next||next===W)return false;
+      /* the raster is packed 8 dots per byte, so the head width must be a byte multiple */
+      const snapped=next-(next%8);
+      if(snapped!==next)trace(`Print width ${next} dots is not a byte multiple · using ${snapped}`);
+      const prev=W;W=snapped;syncRotationUI();if(W<=NARROW_HEAD){if(+$('feed').value>0){$('feed').value=0;$('feedOut').textContent='0';trace('Feed set to 0 · label stock should not advance after a job')}applyDefaultLabelLength()}
+      trace(`Print width ${prev} -> ${W} dots (${W/8} B/row)${why?' · '+why:''}`);
+      render();
+      return true;
+    }
+    function resetPrintWidth(){
+      if(W!==W_DEFAULT){W=W_DEFAULT;trace(`Print width reset to ${W} dots`);render()}
+    }
+
+    /* ---------- FF00 family disambiguation ---------- */
+    let ff00StatusSeen=false;
+    /* Known Rongta / rebadge naming. A hint only - never the deciding factor. */
+    function ff00NameHint(name){
+      if(!name)return null;
+      const n=String(name).trim();
+      const pats=[[/^R\d{1,3}[-_ ]?/i,'R-series'],[/^RP\d/i,'RP-series'],
+                  [/rongta/i,'Rongta'],[/^RT\d/i,'RT-series']];
+      for(const [re,label] of pats)if(re.test(n))return label;
+      return null;
+    }
+    /* Any FF03 traffic matching the Rongta status shape is corroborating evidence.
+       Observed on a known R22: 01 01, 02 f4 00, 01 31. */
+    function noteFf00Status(packet,short){
+      if(short!=='ff03'||ff00StatusSeen)return;
+      const p=packet;
+      const looksRongta=(p.length===2&&p[0]===0x01)||(p.length===3&&p[0]===0x02);
+      if(looksRongta){
+        ff00StatusSeen=true;
+        trace(`FF03 status ${hex(p)} · matches the Rongta status shape`);
+      }
+    }
+    /* Ask 01:06 (get serial). Read-only: no heat, no motor, no stored state touched.
+       Accept only a CRC-valid A3 1E frame as proof. */
+    async function r22Probe(){
+      const deadline=1500;
+      for(const [group,sub,label] of [[1,6,'01:06 serial'],[1,1,'01:01 session init']]){
+        const wait=r22Wait(group,sub,deadline);
+        try{
+          await sendTransport(r22Build(0x11,group,sub,[]),
+            {label:`Probe R22 ${label}`,transport:'r22safe'});
+        }catch(e){trace(`Probe · write failed: ${e.message||e}`);return null}
+        const reply=await wait;
+        if(reply){
+          const txt=ascii(reply.data).replace(/[^\x20-\x7e]/g,'');
+          return{reply,desc:`${label}${txt.length>3?` → "${txt}"`:` → ${reply.data.length} B`}`};
+        }
+      }
+      return null;
+    }
+
+
+    /* The head width comes from 01:04, but the other axis is a property of the media.
+       05:10 reports the paper type block and 05:1C the feedback length; both are read-only.
+       Any plausible dot count is adopted as the label length so the preview matches the
+       actual print area instead of a 384 default. */
+    async function r22QueryMedia(){
+      const plausible=v=>v>=64&&v<=4000;
+      for(const [sub,label] of [[0x10,'05:10 paper type'],[0x1c,'05:1C feedback length']]){
+        const reply=await r22Ask(5,sub,[],`Rongta ${label}`,2000);
+        if(!reply||!reply.data.length)continue;
+        const fields=r22Tlv(reply.data);
+        trace(`Rongta ${label} · ${hex(reply.data)}`
+              +(fields.length?` · tags ${fields.map(f=>`${f.tag}=${leNum(f.value)}`).join(' ')}`:''));
+        for(const f of fields){
+          const v=leNum(f.value);
+          if(plausible(v)&&v!==W){
+            deviceFacts.labelDots=v;delete deviceFacts.labelAssumed;
+            const el=$('labelLen');
+            if(el){el.value=String(v-(v%8));syncRotationUI();render()}
+            trace(`Label length ${el?el.value:v} dots adopted from ${label}`);
+            renderDeviceCard();
+            return;
+          }
+        }
+      }
+      trace('Rongta media · no label length reported · set it with the Label length control');
+    }
+
+
+    /* A label head only tells us one axis. Until the printer reports the media length
+       (05:10 / 05:1C) assume the stock that ships with a head this size: a 96 dot / 12 mm
+       head is a 12 x 40 mm label, i.e. 320 rows at 203 dpi. Flagged as a default, not a
+       measurement, and overridden the moment the printer or the user says otherwise. */
+    const LABEL_DEFAULT_DOTS={96:320};
+    function applyDefaultLabelLength(){
+      if(deviceFacts.labelDots)return;              /* printer already told us */
+      const guess=LABEL_DEFAULT_DOTS[W]||Math.round(W*10/3/8)*8;
+      const el=$('labelLen');
+      if(!el||+el.value===guess)return;
+      el.value=String(guess);
+      deviceFacts.labelAssumed=guess;
+      trace(`Label length ${guess} dots assumed for a ${W} dot head · not reported by the printer`);
+      syncRotationUI();render();
+    }
+
+    /* ---------- device card ---------- */
+    function dcRow(label,value,missing){
+      if(value===undefined||value===null||value==='')
+        return `<div class="dc-row miss"><span>${label}</span><b>${missing||'not reported'}</b></div>`;
+      return `<div class="dc-row"><span>${label}</span><b>${String(value)}</b></div>`;
+    }
+    function renderDeviceCard(){
+      const card=$('deviceCard'),f=deviceFacts;
+      if(!device){card.hidden=true;card.innerHTML='';return}
+      card.hidden=false;
+      const proto=protocol==='r22'?'Rongta':protocol==='x6h'?'X6h':protocol==='escpos'?'ESC/POS':'unknown';
+      let badge='<span class="dc-badge">not identified</span>';
+      if(f.authState==='ok')badge='<span class="dc-badge ok">authenticated</span>';
+      else if(f.authState==='mismatch')badge='<span class="dc-badge warn">handshake mismatch</span>';
+      else if(f.authState==='probing')badge='<span class="dc-badge">probing…</span>';
+      const groups=[];
+      groups.push(['Identity',[
+        dcRow('Model',f.model),dcRow('Serial',f.serial),
+        dcRow('Firmware',f.firmware),dcRow('Hardware',f.hardware),
+        dcRow('BLE name',device?.name)]]);
+      groups.push(['Capability',[
+        dcRow('Resolution',f.dpi?`${f.dpi} dpi`:null),
+        dcRow('Head width',f.widthDots?`${f.widthDots} dots · ${f.widthDots/8} B/row`+(f.widthDots<=NARROW_HEAD?' · label head':''):null),
+        dcRow('Print width',f.dpi&&f.widthDots?`${(f.widthDots/f.dpi*25.4).toFixed(1)} mm`:null),
+        dcRow('Model code',f.odm),
+        dcRow('Language',proto)]]);
+      groups.push(['Media',[
+        dcRow('NFC status',f.nfcStatus),
+        dcRow('NFC code',f.nfcCode),
+        dcRow('Used length',f.nfcMileage!==undefined?`${f.nfcMileage}`:null),
+        dcRow('Label length',f.labelDots?`${f.labelDots} dots`:f.labelAssumed?`${f.labelAssumed} dots · assumed`:null),
+        dcRow('Template',f.template)]]);
+      groups.push(['State',[
+        dcRow('Paper',f.paper),
+        dcRow('Cover',f.cover),
+        dcRow('Head',f.thermal),
+        dcRow('Power',f.power||(f.battery?`${f.battery} V`:null)),
+        dcRow('Status bytes',f.catAux),
+        dcRow('Print status',f.status),
+        dcRow('Heat density',f.density),
+        dcRow('Transport',selectedTransport()==='auto'?(activeProfile?.name||'auto'):selectedTransport())]]);
+      card.innerHTML=
+        `<div class="dc-head"><h3>${f.model||device.name||'Printer'}</h3>`+
+        `<span class="dc-sub">${f.serial||''}</span>${badge}</div>`+
+        `<div class="dc-grid">`+groups.map(([t,rows])=>
+          `<div class="dc-group"><h4>${t}</h4>${rows.join('')}</div>`).join('')+`</div>`;
+    }
+
+    /* ---------- identify: authenticate then read every known parameter ---------- */
+    let identifying=false;
+    async function identifyDevice(auto){
+      if(!tx||identifying)return;
+      if(protocol==='x6h'){
+        if(probeRecords&&probeTxRecord)await probeCatFeatures(probeRecords,probeTxRecord);
+        renderDeviceCard();return;
+      }
+      if(protocol!=='r22'){
+        deviceFacts={};renderDeviceCard();
+        if(!auto)trace('Identify · this protocol exposes no parameter query');
+        return;
+      }
+      identifying=true;$('identify').disabled=true;
+      deviceFacts={authState:'probing',odm:'0x1C'};renderDeviceCard();
+      try{
+        trace(auto?'Identify · auto-probing Rongta':'Identify · probing Rongta');
+        const ok=await r22Authenticate(true);
+        deviceFacts.authState=ok?'ok':'mismatch';renderDeviceCard();
+        const sn=await r22Ask(1,6,[],'Rongta 01:06 serial',2500);
+        if(sn)deviceFacts.serial=ascii(sn.data).trim();
+        const info=await r22Ask(1,3,[],'Rongta 01:03 device info',2500);
+        if(info){try{const j=JSON.parse(ascii(info.data));
+          deviceFacts.model=j.DevName;deviceFacts.firmware=j.Firmware;
+          deviceFacts.hardware=j.HWVer;deviceFacts.serial=j.SN||deviceFacts.serial;
+        }catch(e){trace('Rongta 01:03 · payload was not JSON')}}
+        renderDeviceCard();
+        const model=await r22Ask(1,4,[],'Rongta 01:04 product model',2500);
+        if(model){const t=r22Tlv(model.data),d=t.find(x=>x.tag===3),w=t.find(x=>x.tag===4);
+          if(d)deviceFacts.dpi=leNum(d.value);
+          if(w){deviceFacts.widthDots=leNum(w.value);
+            setPrintWidth(deviceFacts.widthDots,'reported by 01:04')}}
+        const bat=await r22Ask(1,0x0e,[],'Rongta 01:0E battery',2500);
+        if(bat){const v=r22Tlv(bat.data).find(x=>x.tag===1);
+          if(v)deviceFacts.battery=(leNum(v.value)/100).toFixed(2)}
+        const stt=await r22Ask(1,0x13,[],'Rongta 01:13 print status',2500);
+        if(stt){const v=r22Tlv(stt.data).find(x=>x.tag===1);
+          if(v)deviceFacts.status=leNum(v.value)===0?'ready':`0x${leNum(v.value).toString(16)}`}
+        const nfc=await r22Ask(7,2,[],'Rongta 07:02 NFC media tag',2500);
+        if(nfc){const t=r22Tlv(nfc.data);
+          const a=t.find(x=>x.tag===1),b=t.find(x=>x.tag===2),c=t.find(x=>x.tag===3);
+          if(a)deviceFacts.nfcStatus=leNum(a.value)===0?'0 · tag read':leNum(a.value);
+          if(b)deviceFacts.nfcCode=ascii(b.value);
+          if(c)deviceFacts.nfcMileage=leNum(c.value)}
+        const tpl=await r22Ask(1,0x23,[],'Rongta 01:23 label template',2500);
+        if(tpl)deviceFacts.template=ascii(tpl.data).trim();
+        await r22QueryMedia();
+        const den=await r22Ask(5,3,[],'Rongta 05:03 heat density',2500);
+        if(den&&den.data.length)deviceFacts.density=[...den.data].join(' / ');
+        renderDeviceCard();
+        const found=Object.keys(deviceFacts).filter(k=>k!=='authState').length;
+        trace(`Identify · complete · ${found} parameters read`);
+        setStatus(`${deviceFacts.model||'Rongta'} identified`,true);
+      }catch(e){trace(`ERROR identify: ${e.message||e}`);setStatus(`Identify failed: ${e.message||e}`)}
+      finally{identifying=false;$('identify').disabled=!tx;if(tx&&protocol==='r22'&&!identifying&&!deviceFacts.serial)setTimeout(()=>identifyDevice(true),350);else renderDeviceCard();renderDeviceCard()}
+    }
+
+    /* ---------- log to file ---------- */
+    function saveTrace(){
+      const stamp=new Date().toISOString().replace(/[:.]/g,'-').slice(0,19);
+      const head=[`# Printer Lab trace ${new Date().toISOString()}`,
+                  `# device: ${device?.name||'(none)'}`,
+                  `# profile: ${activeProfile?.name||'(none)'} · protocol: ${protocol||'(none)'}`,
+                  `# transport: ${selectedTransport()}`,
+                  `# canvas: ${W}x${canvas.height}`,''].join('\n');
+      const body=head+traceLines.join('\n')+'\n';
+      const blob=new Blob([body],{type:'text/plain'});
+      const a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);a.download=`printer-trace-${stamp}.log`;
+      document.body.appendChild(a);a.click();
+      setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},0);
+      trace(`Trace saved · ${traceLines.length} lines`);
+    }
+
+    function receiveNotification(event){const value=event.target.value,packet=new Uint8Array(value.buffer,value.byteOffset,value.byteLength).slice(),source=event.target.uuid||'unknown',short=shortUUID(source);rxCount++;trace(`RX #${rxCount} · ${short} · ${packet.length} B · hex ${hex(packet)} · ascii "${ascii(packet)}" · base64 ${base64(packet)}`);if(activeProfile?.dialect==='ff00'&&short==='ff03'){if(packet.length===2&&packet[0]===1&&packet[1]===1)trace('Rongta FF03 · transport ACK, not protocol identification');else trace('Rongta FF03 · transport status channel')}if(activeProfile?.dialect==='ff00'&&short==='ff01'){const parsed=inspectR22Frame(packet);trace(parsed?`Rongta FF01 · frame · CRC ${parsed.valid?'valid':'invalid'}${parsed.category===undefined?'':` · command ${parsed.category.toString(16).padStart(2,'0')}/${parsed.command.toString(16).padStart(2,'0')}`}`:'Rongta FF01 · protocol response bytes (unparsed)')}if(packet.length===1&&packet[0]===0xaa)trace('RX meaning · NewPrint completion signal');if(short==='ff01'||short==='ff03'){noteFf00Status(packet,short);if(activeProfile?.dialect==='ff00')r22Push(packet)}for(const waiter of [...rxWaiters])if(!waiter.match||waiter.match(packet,source))waiter.finish({packet,source})}
+    function waitForPacket(timeout=800,match=null){return new Promise(resolve=>{const waiter={match,finish:null};let settled=false;waiter.finish=result=>{if(settled)return;settled=true;clearTimeout(timer);const index=rxWaiters.indexOf(waiter);if(index>=0)rxWaiters.splice(index,1);resolve(result)};const timer=setTimeout(()=>waiter.finish(null),timeout);rxWaiters.push(waiter)})}
     function selectedTransport(){const choice=$('transportMode').value;return choice==='auto'?(activeProfile?.transport||'paced20'):choice}
-    function transportSpec(override=null){const mode=override||selectedTransport();if(mode==='ack512')return{mode,chunkSize:512,pause:0,response:true};if(mode==='paced128')return{mode,chunkSize:128,pause:20,response:false};return{mode:'paced20',chunkSize:20,pause:20,response:false}}
+    function transportSpec(override=null){const mode=override||selectedTransport();if(mode==='r22bulk')return{mode,chunkSize:244,pause:+($('r22Pace')?.value??0),response:false};if(mode==='r22safe')return{mode,chunkSize:244,pause:20,response:false};if(mode==='ack512')return{mode,chunkSize:512,pause:0,response:true};if(mode==='paced128')return{mode,chunkSize:128,pause:20,response:false};return{mode:'paced20',chunkSize:20,pause:20,response:false}}
     async function sendTransport(data,options={}){if(!tx)throw Error('Printer is not connected.');const bytes=data instanceof Uint8Array?data:new Uint8Array(data),spec=transportSpec(options.transport||null),canNoResponse=tx.properties.writeWithoutResponse&&tx.writeValueWithoutResponse,canResponse=tx.properties.write&&tx.writeValueWithResponse,method=spec.response&&canResponse?'writeWithResponse':!spec.response&&canNoResponse?'writeWithoutResponse':canResponse?'writeWithResponse':canNoResponse?'writeWithoutResponse':'write',chunks=Math.ceil(bytes.length/spec.chunkSize);trace(`TX ${options.label||'data'} · ${bytes.length} B · ${chunks} chunks of ≤${spec.chunkSize} B · ${method}`);let number=0;for(let at=0;at<bytes.length;at+=spec.chunkSize){const chunk=bytes.slice(at,at+spec.chunkSize);number++;if($('verbose').checked||number<=3||number>chunks-3||number%100===0)trace(`TX ${number}/${chunks} · ${chunk.length} B · hex ${hex(chunk)} · base64 ${base64(chunk)}`);if(method==='writeWithoutResponse')await tx.writeValueWithoutResponse(chunk);else if(method==='writeWithResponse')await tx.writeValueWithResponse(chunk);else await tx.writeValue(chunk);if(spec.pause)await sleep(spec.pause);if(options.progress)setStatus(`Sending ${Math.min(100,Math.round((at+chunk.length)/bytes.length*100))}%…`,true)}}
-    function applyProtocol(nextProtocol,note=''){protocol=nextProtocol;detectionNote=note;setHeatMode(protocol||'x6h');$('print').disabled=!tx||!protocol;const profileName=activeProfile?.name||'Generic GATT',protocolName=protocol==='x6h'?'X6h / 51 78':protocol==='escpos'?'ESC/POS GS v 0':'unknown';$('driverState').textContent=`${profileName} transport · ${protocolName}${note?` · ${note}`:''} · ${selectedTransport()}`;$('mode').textContent=protocol==='x6h'?'384 px · LSB-first rows · CRC-8 per X6h frame':protocol==='escpos'?'384 px · MSB-first GS v 0 raster · no protocol CRC':'Select a print language';if(tx&&protocol)setStatus(`Connected · ${profileName} · ${protocolName}`,true)}
+    function applyProtocol(nextProtocol,note=''){protocol=nextProtocol;detectionNote=note;setHeatMode(protocol||'x6h');const r22=protocol==='r22';$('print').disabled=!tx||!protocol;$('print').textContent='Print';$('identify').disabled=!tx;if(tx&&protocol==='r22'&&!identifying&&!deviceFacts.serial)setTimeout(()=>identifyDevice(true),350);else renderDeviceCard();const profileName=activeProfile?.name||'Generic GATT',protocolName=protocol==='x6h'?'X6h / 51 78':r22?'Rongta model 0x1C':protocol==='escpos'?'ESC/POS GS v 0':'unknown';$('driverState').textContent=`${profileName} transport · ${protocolName}${note?` · ${note}`:''} · ${selectedTransport()}`;$('mode').textContent=protocol==='x6h'?`${W} px · LSB-first rows · CRC-8 per X6h frame`:r22?`${W} px · uncompressed 1-bit raster · MD5 handshake before printing`:protocol==='escpos'?`${W} px · MSB-first GS v 0 raster · no protocol CRC`:'Select a print language';if(tx&&protocol)setStatus(`Connected · ${profileName} · ${protocolName}`,true)}
 
-    async function probeProtocol(){if(!tx)return;$('probe').disabled=true;trace('Protocol probe begin · no heat or motor commands');detectedProtocol=null;if(notifyChar){const x6hWait=waitForPacket(900,packet=>packet.length>=2&&packet[0]===0x51&&packet[1]===0x78),query=x6hFrame(0xa3,[0]);trace(`Probe X6h state · ${hex(query)} · CRC payload 00`);await sendTransport(query,{label:'X6h state probe',transport:'paced20'});const x6hReply=await x6hWait;if(x6hReply){detectedProtocol='x6h';trace('Probe result · X6h response detected')}else{const escWait=waitForPacket(700),queryEsc=new Uint8Array([0x10,0x04,0x01]);trace(`Probe ESC/POS real-time status · ${hex(queryEsc)}`);await sendTransport(queryEsc,{label:'ESC/POS status probe',transport:'paced20'});const escReply=await escWait;if(escReply){detectedProtocol='escpos';trace('Probe result · non-X6h status response detected')}}}else trace('Protocol probe has no notify channel · using profile hint');const manual=$('protocolMode').value;if(manual!=='auto')applyProtocol(manual,detectedProtocol?`probe saw ${detectedProtocol}`:'manual override');else if(detectedProtocol)applyProtocol(detectedProtocol,'confirmed by notification');else if(activeProfile?.protocol)applyProtocol(activeProfile.protocol,'profile default, unconfirmed');else if(activeProfile?.services.includes(UUID('18f0')))applyProtocol('escpos','18F0 fallback, unconfirmed');else applyProtocol(null,'probe inconclusive');trace(`Protocol probe complete · ${protocol||'unknown'}${detectedProtocol?' confirmed':' unconfirmed'}`);$('probe').disabled=false}
 
-    async function connect(){try{if(!isSecureContext||location.protocol==='file:')throw Error('Serve this file from http://localhost. Web Bluetooth cannot run from file://.');if(!navigator.bluetooth)throw Error('Web Bluetooth is unavailable. Use desktop Chrome or Edge.');const customService=parseInputUUID($('customService').value),customTx=parseInputUUID($('customTx').value),customRx=parseInputUUID($('customRx').value);if((customTx||customRx)&&!customService)throw Error('A custom characteristic requires a custom service UUID.');const optionalServices=[...new Set(PROFILES.flatMap(profile=>profile.services).concat(customService?[customService]:[]))];trace('Opening Web Bluetooth chooser');setStatus('Choose the printer in the Bluetooth dialog…');device=await navigator.bluetooth.requestDevice({acceptAllDevices:true,optionalServices});trace(`Selected device: ${device.name||'(unnamed)'} · id ${device.id}`);device.addEventListener('gattserverdisconnected',disconnectState,{once:true});const server=await device.gatt.connect(),services=await server.getPrimaryServices();trace(`GATT connected · ${services.length} visible services`);const records=[],html=[];for(const service of services){const chars=await service.getCharacteristics();html.push(`<b>${service.uuid}</b>`);trace(`Service ${service.uuid} · ${chars.length} characteristics`);for(const characteristic of chars){const props=['read','write','writeWithoutResponse','notify','indicate'].filter(name=>characteristic.properties[name]);records.push({service,characteristic});html.push(`<div>&nbsp;&nbsp;${characteristic.uuid} [${props.join(', ')}]</div>`);trace(`  Characteristic ${characteristic.uuid} [${props.join(', ')}]`)}}$('gatt').innerHTML=html.join('');$('serviceCount').textContent=`${services.length} visible services`;activeProfile=PROFILES.find(profile=>records.some(record=>profile.services.includes(record.service.uuid)&&record.characteristic.uuid===profile.tx))||null;let txRecord=null;if(customTx)txRecord=records.find(record=>record.service.uuid===customService&&record.characteristic.uuid===customTx);if(!txRecord&&activeProfile)txRecord=records.find(record=>activeProfile.services.includes(record.service.uuid)&&record.characteristic.uuid===activeProfile.tx);if(!txRecord)txRecord=records.find(record=>record.characteristic.properties.write||record.characteristic.properties.writeWithoutResponse);if(!txRecord)throw Error('No writable characteristic was found. Add its service UUID to the custom profile.');tx=txRecord.characteristic;if(!activeProfile)activeProfile={name:`Generic ${txRecord.service.uuid}`,services:[txRecord.service.uuid],tx:tx.uuid,rx:null,protocol:null,transport:'paced20'};let rxRecord=null;if(customRx)rxRecord=records.find(record=>record.service.uuid===customService&&record.characteristic.uuid===customRx);if(!rxRecord&&activeProfile.rx)rxRecord=records.find(record=>activeProfile.services.includes(record.service.uuid)&&record.characteristic.uuid===activeProfile.rx);if(!rxRecord)rxRecord=records.find(record=>record.service.uuid===txRecord.service.uuid&&(record.characteristic.properties.notify||record.characteristic.properties.indicate));notifyChar=rxRecord?.characteristic||null;trace(`Transport: ${activeProfile.name} · service ${txRecord.service.uuid}`);trace(`TX: ${tx.uuid} · write=${!!tx.properties.write} · writeWithoutResponse=${!!tx.properties.writeWithoutResponse}`);if(notifyChar&&(notifyChar.properties.notify||notifyChar.properties.indicate)){await notifyChar.startNotifications();notifyChar.addEventListener('characteristicvaluechanged',receiveNotification);trace(`RX notifications enabled: ${notifyChar.uuid}`)}else{notifyChar=null;trace('RX: no notification characteristic available')}$('connect').classList.add('connected');$('connect').textContent='Reconnect';$('probe').disabled=false;await probeProtocol()}catch(error){trace(`ERROR connect: ${error.message||error}`);disconnectState();setStatus(error.message||String(error))}}
-    function disconnectState(){trace('GATT disconnected');for(const waiter of [...rxWaiters])waiter.finish(null);tx=null;notifyChar=null;activeProfile=null;protocol=null;detectedProtocol=null;$('print').disabled=true;$('probe').disabled=true;$('connect').classList.remove('connected');$('driverState').textContent='No transport selected.';setStatus('Printer disconnected')}
+    async function probeProtocol(){
+      if(!tx)return;
+      $('probe').disabled=true;
+      trace('Protocol probe begin · no heat or motor commands');
+      detectedProtocol=null;
+      const manual=$('protocolMode').value;
+      if(activeProfile?.dialect==='ff00'){
+        /* Rongta and DingDang/NewPrint expose an identical FF00 profile: same service,
+           same FF01/FF02/FF03 characteristics. Device names differ across OEM rebadges
+           (R22_F157, R5_900B, ...), so names are a hint only. The reliable test is to ask
+           a harmless Rongta question and see whether a CRC-valid A3 1E frame comes back:
+           a 32-bit seeded CRC will not match by chance. */
+        if(manual!=='auto'){
+          applyProtocol(manual,'manual override');
+          $('probe').disabled=false;$('identify').disabled=!tx;
+          if(protocol==='r22')await identifyDevice(true);else renderDeviceCard();
+          trace(`Protocol probe complete · ${protocol||'unknown'} · manual`);
+          return;
+        }
+        const hinted=ff00NameHint(device?.name);
+        if(hinted)trace(`Probe · device name "${device.name}" looks like a Rongta rebadge`);
+        if(ff00StatusSeen)trace('Probe · FF03 already pushed a Rongta status frame');
+        trace('Probe · asking 01:06 (get serial, read-only) and checking the reply CRC');
+        const reply=await r22Probe();
+        if(reply){
+          trace(`Probe result · CRC-valid Rongta frame · ${reply.desc}`);
+          applyProtocol('r22','CRC-valid Rongta reply on FF01');
+          $('probe').disabled=false;$('identify').disabled=false;
+          await identifyDevice(true);
+          trace('Protocol probe complete · r22 · confirmed by CRC');
+          return;
+        }
+        const why=hinted||ff00StatusSeen
+          ?'no CRC-valid reply, though the device looked like a Rongta'
+          :'no CRC-valid Rongta reply';
+        trace(`Probe · ${why} · treating FF00 as ESC/POS`);
+        applyProtocol('escpos',`FF00 profile; ${why}`);
+        $('probe').disabled=false;$('identify').disabled=!tx;
+        renderDeviceCard();
+        trace(`Protocol probe complete · ${protocol||'unknown'} · profile selected`);
+        return;
+      }
+      if(notifyChars.length){const x6hWait=waitForPacket(900,packet=>packet.length>=2&&packet[0]===0x51&&packet[1]===0x78),query=x6hFrame(0xa3,[0]);trace(`Probe X6h state · ${hex(query)} · CRC payload 00`);await sendTransport(query,{label:'X6h state probe',transport:'paced20'});const x6hReply=await x6hWait;if(x6hReply){detectedProtocol='x6h';trace('Probe result · X6h response detected');if(probeRecords&&probeTxRecord)await probeCatFeatures(probeRecords,probeTxRecord)}else{const escWait=waitForPacket(700,packet=>packet.length!==2||packet[0]!==1||packet[1]!==1),queryEsc=new Uint8Array([0x10,0x04,0x01]);trace(`Probe ESC/POS real-time status · ${hex(queryEsc)}`);await sendTransport(queryEsc,{label:'ESC/POS status probe',transport:'paced20'});const escReply=await escWait;if(escReply){detectedProtocol='escpos';trace('Probe result · ESC/POS-specific response detected')}}}else trace('Protocol probe has no notify channel · using profile hint');
+      if(manual!=='auto')applyProtocol(manual,detectedProtocol?`probe saw ${detectedProtocol}`:'manual override');else if(detectedProtocol)applyProtocol(detectedProtocol,'confirmed by notification');else if(activeProfile?.protocol)applyProtocol(activeProfile.protocol,'profile default, unconfirmed');else if(activeProfile?.services.includes(UUID('18f0')))applyProtocol('escpos','18F0 fallback, unconfirmed');else applyProtocol(null,'probe inconclusive');
+      trace(`Protocol probe complete · ${protocol||'unknown'}${detectedProtocol?' confirmed':' unconfirmed'}`);
+      $('probe').disabled=false;
+    }
 
-    function rasterRows(){const rgba=ctx.getImageData(0,0,W,canvas.height).data,rows=[];for(let y=0;y<canvas.height;y++){const row=[];for(let x=0;x<W;x++){const i=(y*W+x)*4,luminance=rgba[i]*.299+rgba[i+1]*.587+rgba[i+2]*.114;row.push(rgba[i+3]>16&&luminance<160?1:0)}rows.push(row)}return rows}
+    async function connect(){try{if(!isSecureContext||location.protocol==='file:')throw Error('Serve this file from http://localhost. Web Bluetooth cannot run from file://.');if(!navigator.bluetooth)throw Error('Web Bluetooth is unavailable. Use desktop Chrome or Edge.');const customService=parseInputUUID($('customService').value),customTx=parseInputUUID($('customTx').value),customRx=parseInputUUID($('customRx').value);if((customTx||customRx)&&!customService)throw Error('A custom characteristic requires a custom service UUID.');const optionalServices=[...new Set(PROFILES.flatMap(profile=>profile.services).concat(customService?[customService]:[]))];trace('Opening Web Bluetooth chooser');setStatus('Choose the printer in the Bluetooth dialog…');device=await navigator.bluetooth.requestDevice({acceptAllDevices:true,optionalServices});trace(`Selected device: ${device.name||'(unnamed)'} · id ${device.id}`);device.addEventListener('gattserverdisconnected',disconnectState,{once:true});const server=await device.gatt.connect(),services=await server.getPrimaryServices();trace(`GATT connected · ${services.length} visible services`);const records=[],html=[];for(const service of services){const chars=await service.getCharacteristics();html.push(`<b>${service.uuid}</b>`);trace(`Service ${service.uuid} · ${chars.length} characteristics`);for(const characteristic of chars){const props=['read','write','writeWithoutResponse','notify','indicate'].filter(name=>characteristic.properties[name]);records.push({service,characteristic});html.push(`<div>&nbsp;&nbsp;${characteristic.uuid} [${props.join(', ')}]</div>`);trace(`  Characteristic ${characteristic.uuid} [${props.join(', ')}]`)}}$('gatt').innerHTML=html.join('');$('serviceCount').textContent=`${services.length} visible services`;activeProfile=PROFILES.find(profile=>(!profile.matchName||profile.matchName.test(device.name||''))&&records.some(record=>profile.services.includes(record.service.uuid)))||null;let txRecord=null;if(customTx)txRecord=records.find(record=>record.service.uuid===customService&&record.characteristic.uuid===customTx);if(!txRecord&&activeProfile)txRecord=records.find(record=>activeProfile.services.includes(record.service.uuid)&&activeProfile.tx.includes(record.characteristic.uuid)&&(record.characteristic.properties.write||record.characteristic.properties.writeWithoutResponse));if(!txRecord&&activeProfile)txRecord=records.find(record=>activeProfile.services.includes(record.service.uuid)&&(record.characteristic.properties.write||record.characteristic.properties.writeWithoutResponse));if(!txRecord)txRecord=records.find(record=>record.characteristic.properties.write||record.characteristic.properties.writeWithoutResponse);if(!txRecord)throw Error('No writable characteristic was found. Add its service UUID to the custom profile.');tx=txRecord.characteristic;if(!activeProfile)activeProfile={name:`Generic ${txRecord.service.uuid}`,services:[txRecord.service.uuid],tx:[tx.uuid],rx:[],protocol:null,transport:'paced20'};let rxRecords=[];if(customRx){const match=records.find(record=>record.service.uuid===customService&&record.characteristic.uuid===customRx);if(match)rxRecords=[match]}if(!rxRecords.length&&activeProfile.rx.length)rxRecords=records.filter(record=>activeProfile.services.includes(record.service.uuid)&&activeProfile.rx.includes(record.characteristic.uuid)&&(record.characteristic.properties.notify||record.characteristic.properties.indicate));if(!rxRecords.length)rxRecords=records.filter(record=>record.service.uuid===txRecord.service.uuid&&(record.characteristic.properties.notify||record.characteristic.properties.indicate));notifyChars=[];trace(`Transport: ${activeProfile.name} · service ${txRecord.service.uuid}`);trace(`TX: ${tx.uuid} · write=${!!tx.properties.write} · writeWithoutResponse=${!!tx.properties.writeWithoutResponse}`);for(const record of rxRecords){try{await record.characteristic.startNotifications();record.characteristic.addEventListener('characteristicvaluechanged',receiveNotification);notifyChars.push(record.characteristic);trace(`RX notifications enabled: ${record.characteristic.uuid}`)}catch(error){trace(`RX notifications unavailable: ${record.characteristic.uuid} · ${error.message||error}`)}}probeRecords=records;probeTxRecord=txRecord;await enableExtraNotifications(records,txRecord);await readStaticCharacteristics(records,txRecord);if(!notifyChars.length)trace('RX: no notification characteristic available');$('connect').classList.add('connected');$('connect').textContent='Reconnect';$('probe').disabled=false;await probeProtocol()}catch(error){trace(`ERROR connect: ${error.message||error}`);disconnectState();setStatus(error.message||String(error))}}
+    function disconnectState(){trace('GATT disconnected');for(const waiter of [...rxWaiters])waiter.finish(null);tx=null;notifyChars=[];activeProfile=null;protocol=null;detectedProtocol=null;$('print').disabled=true;$('print').textContent='Print preview';$('probe').disabled=true;$('identify').disabled=true;r22Ready=false;r22Rx=new Uint8Array(0);ff00StatusSeen=false;resetPrintWidth();deviceFacts={};renderDeviceCard();$('connect').classList.remove('connected');$('driverState').textContent='No transport selected.';setStatus('Printer disconnected')}
+
+    function rasterRows(){/* The preview stays readable; rotation is applied here, on the way to the head,   so printed rows are always `W` dots wide. */const srcCanvas=printCanvas;const cw=srcCanvas.width,ch=srcCanvas.height,sctx=srcCanvas.getContext('2d',{willReadFrequently:true}),rgba=sctx.getImageData(0,0,cw,ch).data,rows=[];for(let y=0;y<ch;y++){const row=[];for(let x=0;x<cw;x++){const i=(y*cw+x)*4,luminance=rgba[i]*.299+rgba[i+1]*.587+rgba[i+2]*.114;row.push(rgba[i+3]>16&&luminance<160?1:0)}rows.push(row)}return rows}
     function rle(row){const out=[];let value=row[0],count=0;const emit=()=>{while(count>127){out.push(127|value<<7);count-=127}if(count)out.push(value<<7|count)};for(const pixel of row){if(pixel===value)count++;else{emit();value=pixel;count=1}}emit();return out}
     function x6hRawRow(row){const out=[];for(let x=0;x<W;x+=8){let byte=0;for(let bit=0;bit<8;bit++)byte|=row[x+bit]<<bit;out.push(byte)}return out}
     function x6hRow(row){const packed=rle(row);return packed.length<=48?x6hFrame(0xbf,packed):x6hFrame(0xa2,x6hRawRow(row))}
-    function x6hJob(){const rows=rasterRows(),encoded=rows.map(x6hRow),energy=+$('heat').value,feed=+$('feed').value,latticeStart=[0xaa,0x55,0x17,0x38,0x44,0x5f,0x5f,0x5f,0x44,0x38,0x2c],latticeEnd=[0xaa,0x55,0x17,0,0,0,0,0,0,0,0x17],data=join([x6hFrame(0xa3,[0]),x6hFrame(0xa4,[0x32]),x6hFrame(0xaf,[energy>>8&255,energy&255]),x6hFrame(0xbe,[1]),x6hFrame(0xa6,latticeStart),...encoded,x6hFrame(0xbd,[feed]),x6hFrame(0xa1,[0x30,0]),x6hFrame(0xa1,[0x30,0]),x6hFrame(0xa1,[0x30,0]),x6hFrame(0xa6,latticeEnd),x6hFrame(0xa3,[0])]);return{rows:rows.length,data,rle:encoded.filter(frame=>frame[2]===0xbf).length,energy}}
-    function escposJob(){const rows=rasterRows(),body=[];for(const row of rows)for(let x=0;x<W;x+=8){let byte=0;for(let bit=0;bit<8;bit++)if(row[x+bit])byte|=0x80>>bit;body.push(byte)}const height=rows.length,density=+$('heat').value,heat=densityHeat(density);return{rows:height,density,heat,init:new Uint8Array([0x1b,0x40]),heatCommand:new Uint8Array([0x1b,0x37,7,heat,2]),densityCommand:new Uint8Array([0x1d,0x7c,density]),raster:new Uint8Array([0x1d,0x76,0x30,0,48,0,height&255,height>>8&255,...body]),feed:new Uint8Array([0x1b,0x4a,+$('feed').value])}}
+    function x6hJob(){const rows=rasterRows(),encoded=rows.map(x6hRow),energy=catEnergy,feed=+$('feed').value,latticeStart=[0xaa,0x55,0x17,0x38,0x44,0x5f,0x5f,0x5f,0x44,0x38,0x2c],latticeEnd=[0xaa,0x55,0x17,0,0,0,0,0,0,0,0x17],data=join([x6hFrame(0xa3,[0]),x6hFrame(0xa4,[0x32]),x6hFrame(0xaf,[energy>>8&255,energy&255]),x6hFrame(0xbe,[1]),x6hFrame(0xa6,latticeStart),...encoded,x6hFrame(0xbd,[feed]),x6hFrame(0xa1,[0x30,0]),x6hFrame(0xa1,[0x30,0]),x6hFrame(0xa1,[0x30,0]),x6hFrame(0xa6,latticeEnd),x6hFrame(0xa3,[0])]);return{rows:rows.length,data,rle:encoded.filter(frame=>frame[2]===0xbf).length,energy}}
+    function escposJob(){const rows=rasterRows(),body=[];for(const row of rows)for(let x=0;x<W;x+=8){let byte=0;for(let bit=0;bit<8;bit++)if(row[x+bit])byte|=0x80>>bit;body.push(byte)}const height=rows.length,density=+$('heat').value,heat=densityHeat(density);return{rows:height,density,heat,init:new Uint8Array([0x1b,0x40]),heatCommand:new Uint8Array([0x1b,0x37,7,heat,2]),densityCommand:new Uint8Array([0x1d,0x7c,density]),raster:new Uint8Array([0x1d,0x76,0x30,0,(W>>3)&255,(W>>3)>>8&255,height&255,height>>8&255,...body]),feed:new Uint8Array([0x1b,0x4a,+$('feed').value])}}
 
-    async function print(){if(!tx||!protocol||printing)return;printing=true;$('print').disabled=true;const rxBefore=rxCount;try{if(protocol==='x6h'){const job=x6hJob(),check=verifyX6hFrames(job.data),commands=Object.entries(check.commands).map(([cmd,count])=>`0x${(+cmd).toString(16).padStart(2,'0')}×${count}`).join(' ');trace(`X6h raster · 384×${job.rows} px · ${job.data.length} B · ${job.rle} RLE rows · energy ${job.energy}`);trace(`CRC-8/ATM poly 0x07 · ${check.total-check.bad}/${check.total} protocol frames valid`);trace(`Commands: ${commands}`);await sendTransport(job.data,{label:'X6h job',progress:true})}else{const job=escposJob();trace(`ESC/POS raster · 384×${job.rows} px · ${job.raster.length} B · density ${job.density}/8 · heat ${job.heat}`);trace('CRC: none in ESC/POS commands, raster stream, or BLE chunks');await sendTransport(job.init,{label:'ESC/POS init'});await sleep(100);await sendTransport(job.heatCommand,{label:'ESC/POS heat'});await sleep(30);await sendTransport(job.densityCommand,{label:'ESC/POS density'});await sleep(50);await sendTransport(job.raster,{label:'ESC/POS raster',progress:true});await sleep(300);await sendTransport(job.feed,{label:'ESC/POS feed'})}if(notifyChar&&rxCount===rxBefore){trace('TX finished · waiting up to 2.0s for notification');await waitForPacket(2000)}trace(`Print transaction complete · RX notifications ${rxCount-rxBefore}`);setStatus(`Print sent · ${protocol==='x6h'?'X6h':'ESC/POS'} · RX ${rxCount-rxBefore}`,true)}catch(error){trace(`ERROR print: ${error.message||error}`);setStatus(`Print failed: ${error.message||error}`)}finally{printing=false;$('print').disabled=!tx||!protocol}}
-    function render(){const font=+$('font').value,margin=20,lineHeight=Math.ceil(font*1.3),maxWidth=W-margin*2;ctx.font=`600 ${font}px ui-monospace,SFMono-Regular,Menlo,monospace`;const lines=[];for(const paragraph of $('text').value.split('\n')){if(!paragraph){lines.push('');continue}let line='';for(const word of paragraph.split(/\s+/)){const test=line?line+' '+word:word;if(ctx.measureText(test).width<=maxWidth||!line)line=test;else{lines.push(line);line=word}}lines.push(line)}const imageHeight=image?Math.round(image.height/image.width*maxWidth):0,textHeight=Math.max(lineHeight,lines.length*lineHeight);canvas.width=W;canvas.height=Math.max(80,margin*2+textHeight+(image?imageHeight+margin:0));ctx.fillStyle='#fff';ctx.fillRect(0,0,W,canvas.height);if(image)ctx.drawImage(image,margin,margin,maxWidth,imageHeight);ctx.fillStyle='#000';ctx.font=`600 ${font}px ui-monospace,SFMono-Regular,Menlo,monospace`;ctx.textBaseline='top';const top=margin+(image?imageHeight+margin:0);lines.forEach((line,index)=>ctx.fillText(line,margin,top+index*lineHeight));$('stats').textContent=`${canvas.height} rows · ${W} px wide`}
+    async function print(){if(!tx||!protocol||printing)return;if(protocol==='r22')return r22PrintUncompressed();printing=true;$('print').disabled=true;const rxBefore=rxCount;try{if(protocol==='x6h'){const job=x6hJob(),check=verifyX6hFrames(job.data),commands=Object.entries(check.commands).map(([cmd,count])=>`0x${(+cmd).toString(16).padStart(2,'0')}×${count}`).join(' ');trace(`X6h raster · 384×${job.rows} px · ${job.data.length} B · ${job.rle} RLE rows · energy ${job.energy}`);trace(`CRC-8/ATM poly 0x07 · ${check.total-check.bad}/${check.total} protocol frames valid`);trace(`Commands: ${commands}`);await sendTransport(job.data,{label:'X6h job',progress:true})}else{const job=escposJob(),buffered=activeProfile?.dialect==='ff00';trace(`ESC/POS raster · 384×${job.rows} px · ${job.raster.length} B · density ${job.density}/8 · heat ${job.heat}`);trace('CRC: none in raster stream or BLE chunks');if(buffered){trace('NewPrint setup · enable, keep awake, continuous paper');for(const [label,command] of [['enable',new Uint8Array([0x10,0xff,0x40])],['enable 2',new Uint8Array([0x10,0xff,0xf1,0x03])],['disable shutdown',new Uint8Array([0x10,0xff,0x12,0,0])],['paper mode',new Uint8Array([0x1a,0x0c,0])]]){await sendTransport(command,{label:`NewPrint ${label}`});await sleep(100)}}await sendTransport(job.init,{label:'ESC/POS init'});await sleep(100);await sendTransport(job.heatCommand,{label:'ESC/POS heat'});await sleep(30);await sendTransport(job.densityCommand,{label:'ESC/POS density'});await sleep(50);await sendTransport(job.raster,{label:'ESC/POS raster',progress:true});await sleep(300);if(buffered){const finish=new Uint8Array(256);finish.set([0x1b,0x4a,0x64]);trace('Buffered print finish · ESC J 100 padded to 256 B, then 10 FF F1 45');await sendTransport(finish,{label:'buffered print end'});await sleep(100);await sendTransport(new Uint8Array([0x10,0xff,0xf1,0x45]),{label:'buffered print commit'});await sleep(500)}else await sendTransport(job.feed,{label:'ESC/POS feed'})}if(notifyChars.length&&rxCount===rxBefore){trace('TX finished · waiting up to 2.0s for notification');await waitForPacket(2000)}trace(`Print transaction complete · RX notifications ${rxCount-rxBefore}`);setStatus(`Print sent · ${protocol==='x6h'?'X6h':'ESC/POS'} · RX ${rxCount-rxBefore}`,true)}catch(error){trace(`ERROR print: ${error.message||error}`);setStatus(`Print failed: ${error.message||error}`)}finally{printing=false;$('print').disabled=!tx||!protocol}}
+    function render(){const rot=activeRotation(),acrossHead=(rot===90||rot===270),flowWidth=acrossHead?(+($('labelLen')?.value||384)):W,font=+$('font').value,margin=20,lineHeight=Math.ceil(font*1.3),maxWidth=flowWidth-margin*2;ctx.font=`600 ${font}px ui-monospace,SFMono-Regular,Menlo,monospace`;const lines=[];for(const paragraph of $('text').value.split('\n')){if(!paragraph){lines.push('');continue}let line='';for(const word of paragraph.split(/\s+/)){const test=line?line+' '+word:word;if(ctx.measureText(test).width<=maxWidth||!line)line=test;else{lines.push(line);line=word}}lines.push(line)}const imageHeight=image?Math.round(image.height/image.width*maxWidth):0,textHeight=Math.max(lineHeight,lines.length*lineHeight);const src=composeCanvas,sctx=src.getContext('2d',{willReadFrequently:true});src.width=flowWidth;src.height=acrossHead?W:Math.max(80,margin*2+textHeight+(image?imageHeight+margin:0));sctx.font=`600 ${font}px ui-monospace,SFMono-Regular,Menlo,monospace`;sctx.fillStyle='#fff';sctx.fillRect(0,0,src.width,src.height);if(image)sctx.drawImage(image,margin,margin,maxWidth,imageHeight);sctx.fillStyle='#000';ctx.font=`600 ${font}px ui-monospace,SFMono-Regular,Menlo,monospace`;sctx.textBaseline='top';const top=margin+(image?imageHeight+margin:0);lines.forEach((line,index)=>sctx.fillText(line,margin,top+index*lineHeight));presentPreview(rot);const pw=printCanvas.width,ph=printCanvas.height,zoom=Math.max(1,Math.min(6,Math.floor(384/Math.max(1,canvas.width))));canvas.style.width=(canvas.width*zoom)+'px';$('stats').textContent=`${ph} rows · ${pw} px wide`+(deviceFacts&&deviceFacts.widthDots===W?' · from printer':'')+(zoom>1?` · ${zoom}\u00d7 preview`:'')+(rot?($('previewMode')?.value==='read'?` · prints rotated ${rot}\u00b0`:` · rotated ${rot}\u00b0`):'')}
 
-    $('connect').addEventListener('click',connect);$('probe').addEventListener('click',probeProtocol);$('print').addEventListener('click',print);$('clearTrace').addEventListener('click',()=>{traceLines=[];traceStart=performance.now();trace('Trace cleared')});$('protocolMode').addEventListener('change',async()=>{if(!tx)return;if($('protocolMode').value==='auto')await probeProtocol();else applyProtocol($('protocolMode').value,'manual override')});$('transportMode').addEventListener('change',()=>{if(tx)applyProtocol(protocol,detectionNote)});$('text').addEventListener('input',render);$('font').addEventListener('input',()=>{$('fontOut').textContent=$('font').value+'px';render()});$('heat').addEventListener('input',()=>{if(protocol==='escpos'){escDensity=+$('heat').value;$('heatOut').textContent=`${escDensity} · heat ${densityHeat(escDensity)}`}else{catEnergy=+$('heat').value;$('heatOut').textContent=Math.round(catEnergy/65535*100)+'%'}});$('feed').addEventListener('input',()=>$('feedOut').textContent=$('feed').value);$('image').addEventListener('change',event=>{const file=event.target.files[0];if(!file)return;const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{image=img;render();URL.revokeObjectURL(url)};img.src=url});$('clearImage').addEventListener('click',()=>{image=null;$('image').value='';render()});
-    if(location.protocol==='file:')$('localhost').hidden=false;trace('Diagnostics ready · adapters: X6h, ESC/POS · transports: AE30/AF30, 18F0, FF00, FFE0, custom');render();
+    $('connect').addEventListener('click',connect);$('probe').addEventListener('click',probeProtocol);$('identify').addEventListener('click',()=>identifyDevice(false));$('saveTrace').addEventListener('click',saveTrace);$('rotate').addEventListener('change',()=>{syncRotationUI();render()});$('previewMode').addEventListener('change',render);$('labelLen').addEventListener('input',()=>{syncRotationUI();render()});$('r22Pace')?.addEventListener('input',()=>{$('r22PaceOut').textContent=($('r22Pace').value==='0'?'0 ms (link-rate)':$('r22Pace').value+' ms')});$('print').addEventListener('click',print);$('clearTrace').addEventListener('click',()=>{traceLines=[];traceStart=performance.now();trace('Trace cleared')});$('protocolMode').addEventListener('change',async()=>{if(!tx)return;if($('protocolMode').value==='auto')await probeProtocol();else applyProtocol($('protocolMode').value,'manual override')});$('transportMode').addEventListener('change',()=>{if(tx)applyProtocol(protocol,detectionNote)});$('text').addEventListener('input',render);$('font').addEventListener('input',()=>{$('fontOut').textContent=$('font').value+'px';render()});$('heat').addEventListener('input',()=>{if(protocol==='escpos'||protocol==='r22'){escDensity=+$('heat').value;$('heatOut').textContent=`${escDensity} · heat ${densityHeat(escDensity)}`}else{catEnergy=catEnergyFor(+$('heat').value);$('heatOut').textContent=`${$('heat').value} · energy ${catEnergy}`}});$('feed').addEventListener('input',()=>$('feedOut').textContent=$('feed').value);$('image').addEventListener('change',event=>{const file=event.target.files[0];if(!file)return;const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{image=img;render();URL.revokeObjectURL(url)};img.src=url});$('clearImage').addEventListener('click',()=>{image=null;$('image').value='';render()});
+    if(location.protocol==='file:')$('localhost').hidden=false;trace('Diagnostics ready · adapters: Rongta, X6h, ESC/POS, DingDang/NewPrint · FF00 resolved by CRC probe · transports: AE30/AF30, 18F0, FF00, FFE0, custom');render();
   })();
   </script>
 </body>
